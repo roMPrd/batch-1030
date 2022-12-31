@@ -17,6 +17,10 @@ body {
   background: #f2f2f2;
 }
 
+.swiper {
+  width: 950px;
+}
+
 section .card .image {
   height: 140px;
   width: 140px;
@@ -101,7 +105,7 @@ section .card .image img{
 .card .stats {
   display: flex;
   align-items: center;
-  margin: 18px 0 18px 0;
+  margin-top: 18px;
   width: 100%;
   justify-content: space-around;
 }
@@ -110,12 +114,41 @@ section .card .image img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 100%; */
-  /* margin: 0 10px 18px 0; */
 }
 
 .card .stat-category span {
   font-size: 12px;
   font-weight: 500;
   color: #333;
+}
+
+.card .stat-category .green{
+  color: rgb(0, 200, 0);
+}
+
+.card .stat-category .red{
+  color: red;
+}
+
+.card .button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 18px;
+}
+
+.card .button button {
+  background: #7d2ae8;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background: #6616d0;
 }

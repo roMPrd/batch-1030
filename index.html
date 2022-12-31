@@ -11,16 +11,19 @@
   <!-- ===== CSS ===== -->
   <link rel="stylesheet" href="CSS/style.css">
 
+  <!-- ===== Link Swiper's CSS ===== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
 
   <title>Batch#1030</title>
 </head>
 <body>
 
   <section>
-    <div class="container">
-      <div class="content">
+    <div class="swiper mySwiper container">
+      <div class="swiper-wrapper content">
 
-        <div class="card">
+        <div class="swiper-slide card">
           <div class="card-content">
             <div class="image">
               <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1671031692/dw3o8ajav5rtu8jpgwsx.jpg" alt="">
@@ -43,12 +46,12 @@
               </div>
 
               <div class="stat-category additions">
-                <span class="number">1</span>
+                <span class="number green">1</span>
                 <span class="text">additions</span>
               </div>
 
               <div class="stat-category deletions">
-                <span class="number">1</span>
+                <span class="number red">1</span>
                 <span class="text">deletions</span>
               </div>
             </div>
@@ -61,7 +64,33 @@
 
       </div>
     </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 
 </body>
 </html>
