@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- ===== CSS ===== -->
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- ===== Link Swiper's CSS ===== -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
@@ -41,7 +41,12 @@
 
             <div class="stats">
               <div class="stat-category commit">
-                <span class="number">1</span>
+                <span class="number">
+                  curl -u roMPrd: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 \
+                    -X GET \
+                  'https://api.github.com/search/commits?q=author:roMPrd\
+                  -H 'Accept: application/vnd.github.cloak-preview'
+                </span>
                 <span class="text">Commits</span>
               </div>
 
@@ -70,10 +75,13 @@
     <div class="swiper-pagination"></div>
   </section>
 
-  <!-- Swiper JS -->
+  <!-- ===== Scipt JS ===== -->
+  <script src="js/home.js" defer></script>
+
+  <!-- ===== Swiper JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
+  <!-- ===== Initialize Swiper ===== -->
   <script>
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
