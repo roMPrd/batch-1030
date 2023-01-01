@@ -329,35 +329,52 @@ let classmates = [
 // console.log(classmates[0].contributions);
 // const puppeteer = require('puppeteer');
 
-classmates.forEach((classmate) => {
-  insertHtml(classmate);
-  githubScrape(classmate);
-  console.log(classmate.contributions);
-});
+
+start();
+
+function start () {
+  classmates.forEach((classmate) => {
+    githubScrape(classmate)
+    .then(insertContributions(classmate))
+    .then(insertHtml(classmate))
+    .then(console.log(classmate.contributions));
+  });
+};
+
+
+const puppeteer = require('puppeteer');
 
 function githubScrape(classmate) {
-  classmate.contributions = (async () => {
-    const puppeteer = require('puppeteer');
+  return new Promise(async (resolve, reject) => {
+    try {
+      const browser = await puppeteer.launch( {
+        userDataDir: './data',
+        headless: false,
+        // executablePath: '/usr/bin/chromium-browser',
+        // args: ["--no-sandbox"],
+        // ignoreDefaultArgs: ['--disable-extensions'],
+      } );
+      const pageGithub = await browser.newPage();
+      await pageGithub.goto(`${classmate.github_url}`);
+      await page.waitFor(5000);
 
-    const browser = await puppeteer.launch( {
-      // executablePath: '/usr/bin/chromium-browser',
-      headless: false,
-      // args: ["--no-sandbox"],
-      // ignoreDefaultArgs: ['--disable-extensions'],
-    } );
-    const pageGithub = await browser.newPage();
-    await pageGithub.goto(`${classmate.github_url}`);
+      let data = await pageGithub.evaluate(function() {
+        return contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+        // return contributions;
+      });
 
-    let data = await pageGithub.evaluate(function() {
-      let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
-      return contributions;
-    });
+      let result = data.replace(/[a-zA-Z]+/gi, '');
+      // document.getElementById(`${classmate.name.replace(/ /g,'-')}`).innerText = contribution;
+      browser.close();
+      return resolve(result);
+    } catch (e) {
+      return reject(e);
+    }
+  });
+}
 
-    const contribution = await data.replace(/[a-zA-Z]+/gi, '');
-    document.getElementById(`${classmate.name.replace(/ /g,'-')}`).innerText = contribution;
-    // return contribution
-  })();
-
+function insertContributions(classmate) {
+  classmate.contributions = githubScrape(classmate);
 }
 
 function insertHtml(classmate) {
@@ -379,7 +396,7 @@ function insertHtml(classmate) {
         </div>
 
         <div class="stats">
-          <div class="stat-category contributions >
+          <div class="stat-category contributions" >
             <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions}</span>
             <span class="text">Contributions</span>
           </div>
