@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+
 
 let classmates = [
   { "name": "Romain Delimal",
@@ -283,29 +283,117 @@ let classmates = [
 //   })();
 // });
 
-classmates[0].contributions = (async () => {
+// (async function () {
+//   scrapContributions()
+//   // .then(() => {console.log(classmates[0]);});
+//   console.log(await classmates[0])
+//   // await console.log(classmates[0]);
+//   // await consoleResult();
+// })();
 
-                                const browser = await puppeteer.launch( {
-                                  // executablePath: '/usr/bin/chromium-browser',
-                                  headless: false,
-                                  // args: ["--no-sandbox"],
-                                  // ignoreDefaultArgs: ['--disable-extensions'],
-                                } );
-                                const pageGithub = await browser.newPage();
-                                await pageGithub.goto(`${classmates[0].github_url}`);
+// function scrapContributions() {
+//   classmates[0].contributions =
+//     (async () => {
 
-                                let data = await pageGithub.evaluate(() => {
-                                  let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
-                                  // console.log(contributions);
-                                  return contributions;
-                                });
+//       const browser = await puppeteer.launch( {
+//         // executablePath: '/usr/bin/chromium-browser',
+//         headless: false,
+//         // args: ["--no-sandbox"],
+//         // ignoreDefaultArgs: ['--disable-extensions'],
+//       } );
+//       const pageGithub = await browser.newPage();
+//       await pageGithub.goto(`${classmates[0].github_url}`);
+
+//       let data = await pageGithub.evaluate(function() {
+//         let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+//         // console.log(contributions);
+//         return contributions;
+//       });
 
 
-                                let contribution = data.replace(/[a-zA-Z]+/gi, '');
-                                console.log(contribution);
+//       let contribution = await data.replace(/[a-zA-Z]+/gi, '');
+//       // console.log(contribution);
 
-                                return contribution
-                              })();
+//       return contribution
+//     })();
 
-console.log(classmates[0]);
-console.log(classmates[0].contributions);
+//   console.log(classmates[0]);
+// };
+
+// function consoleResult() {
+//   console.log(classmates[0]);
+
+// };
+// console.log(classmates)
+// console.log(classmates[0]);
+// console.log(classmates[0].contributions);
+// const puppeteer = require('puppeteer');
+
+classmates.forEach((classmate) => {
+  insertHtml(classmate);
+  githubScrape(classmate);
+  console.log(classmate.contributions);
+});
+
+function githubScrape(classmate) {
+  classmate.contributions = (async () => {
+    const puppeteer = require('puppeteer');
+
+    const browser = await puppeteer.launch( {
+      // executablePath: '/usr/bin/chromium-browser',
+      headless: false,
+      // args: ["--no-sandbox"],
+      // ignoreDefaultArgs: ['--disable-extensions'],
+    } );
+    const pageGithub = await browser.newPage();
+    await pageGithub.goto(`${classmate.github_url}`);
+
+    let data = await pageGithub.evaluate(function() {
+      let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+      return contributions;
+    });
+
+    const contribution = await data.replace(/[a-zA-Z]+/gi, '');
+    document.getElementById(`${classmate.name.replace(/ /g,'-')}`).innerText = contribution;
+    // return contribution
+  })();
+
+}
+
+function insertHtml(classmate) {
+  this.document.getElementById('card-container').insertAdjacentHTML('beforeend',
+  `<div class="swiper-slide card">
+      <div class="card-content">
+        <div class="image">
+          <img src="${classmate.photo_url}" alt="">
+        </div>
+
+        <div class="media-icons">
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+
+        <div class="name-profession">
+          <span class="name">${classmate.name}</span>
+          <span class="profession">Web Developer</span>
+        </div>
+
+        <div class="stats">
+          <div class="stat-category contributions >
+            <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions}</span>
+            <span class="text">Contributions</span>
+          </div>
+
+          <div class="stat-category rank">
+            <span class="number">#1</span>
+            <span class="text">rank</span>
+          </div>
+        </div>
+
+        <div class="button">
+          <button class="aboutMe">About Me</button>
+        </div>
+      </div>
+    </div>`
+  );
+}
