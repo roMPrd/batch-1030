@@ -268,17 +268,44 @@ let classmates = [
   },
 ];
 
-classmates.forEach((classmate) => {
-  console.log(classmate.name);
-  (async () => {
+// classmates.forEach((classmate) => {
+//   console.log(classmate.name);
+//   (async () => {
 
-    const browser = await puppeteer.launch( {
-      // executablePath: '/usr/bin/chromium-browser',
-      headless: false,
-      // args: ["--no-sandbox"],
-      // ignoreDefaultArgs: ['--disable-extensions'],
-    } );
-    const pageGithub = await browser.newPage();
-    await pageGithub.goto(`${classmate.github_url}`);
-  })();
-});
+//     const browser = await puppeteer.launch( {
+//       // executablePath: '/usr/bin/chromium-browser',
+//       headless: false,
+//       // args: ["--no-sandbox"],
+//       // ignoreDefaultArgs: ['--disable-extensions'],
+//     } );
+//     const pageGithub = await browser.newPage();
+//     await pageGithub.goto(`${classmate.github_url}`);
+//   })();
+// });
+
+classmates[0].contributions = (async () => {
+
+                                const browser = await puppeteer.launch( {
+                                  // executablePath: '/usr/bin/chromium-browser',
+                                  headless: false,
+                                  // args: ["--no-sandbox"],
+                                  // ignoreDefaultArgs: ['--disable-extensions'],
+                                } );
+                                const pageGithub = await browser.newPage();
+                                await pageGithub.goto(`${classmates[0].github_url}`);
+
+                                let data = await pageGithub.evaluate(() => {
+                                  let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+                                  // console.log(contributions);
+                                  return contributions;
+                                });
+
+
+                                let contribution = data.replace(/[a-zA-Z]+/gi, '');
+                                console.log(contribution);
+
+                                return contribution
+                              })();
+
+console.log(classmates[0]);
+console.log(classmates[0].contributions);
