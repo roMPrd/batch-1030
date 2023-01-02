@@ -15,7 +15,9 @@ body {
   align-items: center;
   justify-content: center;
   background: #f2f2f2;
+  position: relative;
 }
+
 
 section {
   position: relative;
@@ -28,6 +30,40 @@ section {
   /* background: red; */
 }
 
+section .header-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+  position: absolute;
+  top: -30px;
+  line-height: 1;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+section .header-title img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+section .header-title .batch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section .header-title .purple {
+  color: #7d2ae8;
+}
+
+section .header-title .red-wagon {
+  color: #E60F05;
+}
 /* .swiper {
   width: 950px;
 } */
@@ -192,7 +228,11 @@ section .card .image img{
 @media screen and (max-width: 768px) {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: -80px !important;
+  }
 
+  section .header-title {
+    font-size: 25px;
+    top: -30px;
   }
 
 }
