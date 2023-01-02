@@ -20,15 +20,16 @@ body {
 section {
   position: relative;
   height: 500px;
-  width: 1075px;
+  max-width: 1075px;
+  width: 90%;
   display: flex;
   align-items: center;
   /* background: red; */
 }
 
-.swiper {
+/* .swiper {
   width: 950px;
-}
+} */
 
 section .card .image {
   height: 140px;
@@ -183,6 +184,67 @@ section .card .image img{
   opacity: 1 !important;
 }
 
-/* .mySwiper {
+.mySwiper {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: -50px !important;
+
+  }
+
+}
+/* .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction */
+/* @media screen and (max-width: 768px) {
+  section {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  .card {
+    width: 80%;
+  }
 } */

@@ -23,40 +23,6 @@
     <div class="swiper mySwiper container">
       <div id="card-container" class="swiper-wrapper content">
 
-        <!-- <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1671031692/dw3o8ajav5rtu8jpgwsx.jpg" alt="">
-            </div>
-
-            <div class="media-icons">
-              <i class="fa-brands fa-linkedin"></i>
-              <i class="fa-brands fa-github"></i>
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Romain DELIMAL</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="stats">
-              <div class="stat-category contributions">
-                <span class="number green">1</span>
-                <span class="text">Contributions</span>
-              </div>
-
-              <div class="stat-category rank">
-                <span class="number">#1</span>
-                <span class="text">rank</span>
-              </div>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">About Me</button>
-            </div>
-          </div>
-        </div> -->
-
       </div>
     </div>
 
@@ -82,12 +48,12 @@
       // Responsive breakpoints
       breakpoints: {
         // when window width is >= 320px
-        1024: { slidesPerView: 3, spaceBetween: 30 },
-        768: { slidesPerView: 3, spaceBetween: 30 },
-        480: { slidesPerView: 2, spaceBetween: 30 },
-        320: { slidesPerView: 1, spaceBetween: 30 },
+        // 1024: { slidesPerView: 3, spaceBetween: 30 },
+        1024: { slidesPerView: 3, spaceBetween: 30, slidesPerGroup: 3 },
+        768: { slidesPerView: 2, spaceBetween: 20, slidesPerGroup: 2 },
+        480: { slidesPerView: 1, spaceBetween: 10, slidesPerGroup: 1 },
       },
-      slidesPerGroup: 3,
+      // slidesPerGroup: 3,
       loop: true,
       loopFillGroupWithBlank: true,
       pagination: {
