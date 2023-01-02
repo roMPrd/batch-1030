@@ -80,7 +80,7 @@ let classmates = [
 
   { "name": "Gabriel de Monts",
     "photo_url": "https://avatars.githubusercontent.com/u/113995804?v=4",
-    "github_url": "https://d26jy9fbi4q9wx.cloudfront.net/assets/alumni-bg-9744b3e860857f755558400a206e5e7c2d58bf1bf7ebf5b2ea5193e7c52cdc62.svg",
+    "github_url": "https://github.com/gabmonts",
     "linkedin_url": "https://www.linkedin.com/in/gabriel-de-monts/",
     "contributions": "",
   },
@@ -329,24 +329,43 @@ let classmates = [
 // console.log(classmates[0].contributions);
 // const puppeteer = require('puppeteer');
 
+// import puppeteer from "/node_modules/puppeteer-core/lib/cjs/puppeteer/node/Browser.js";
+
 const puppeteer = require('puppeteer');
+
+process.setMaxListeners(Infinity);
+
+const args = [
+  '--disable-gpu',
+  '--no-sandbox',
+]
 
 for (let i = 0; i < classmates.length; i++) {
   (async () => {
-    console.log(classmates[i].name);
+    // console.log(classmates[i].name);
 
-    const browser = await puppeteer.launch( { headless: true } );
-    const pageGithub = await browser.newPage();
-    await pageGithub.goto(`${classmates[i].github_url}`);
+    const browser = await puppeteer.launch({
+      headless     : true,
+      handleSIGINT : false,
+      args         : args,
+    })
 
-    let data = await pageGithub.evaluate(function() {
+    const page = await browser.newPage();
+    // await page.setDefaultNavigationTimeout(0);
+    await page.goto(`${classmates[i].github_url}`, { waitUntil: 'networkidle2'});
+
+    await page.waitForSelector('.js-yearly-contributions h2', {timeout: 0});
+    let data = await page.evaluate(function() {
       let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
       // console.log(contributions);
       return contributions;
     });
+    await page.close();
 
-    classmates[i].contributions = await data.replace(/[a-zA-Z]+/gi, '');
-    console.log(classmates[i].contributions);
+    classmates[i].contributions = await data.replace(/\D+/g, '');
+    console.log(classmates[i]);
+    // console.log(classmates[i].contributions);
+    await browser.close();
   })();
 };
 
