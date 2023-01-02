@@ -438,8 +438,12 @@ sortedRank.forEach((classmate, i) => {
         </div>
 
         <div class="media-icons">
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-github"></i>
+          <a href="${classmate.linkedin_url}" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="${classmate.github_url}" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
         </div>
 
         <div class="name-profession">
