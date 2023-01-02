@@ -190,7 +190,7 @@ section .card .image img{
 
 @media screen and (max-width: 768px) {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: -50px !important;
+    bottom: -80px !important;
 
   }
 
