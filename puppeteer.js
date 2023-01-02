@@ -308,12 +308,12 @@ for (let i = 0; i < classmates.length; i++) {
     // console.log(classmates[i].contributions);
     await browser.close();
 
-    fs.writeFile("data.js",JSON.stringify(updatedClassmates), 'utf8', function(err) {
+    fs.writeFile("data.json",JSON.stringify(updatedClassmates), 'utf8', function(err) {
       if(err) {
           return console.log(err);
       }
       // console.log(updatedClassmates)
-      console.log("The data has been scraped and saved successfully! View it at './data.js'");
+      console.log("The data has been scraped and saved successfully! View it at './data.json'");
     });
   })();
 };
