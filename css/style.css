@@ -26,10 +26,6 @@ section {
   /* background: red; */
 }
 
-.swiper {
-  width: 950px;
-}
-
 section .card .image {
   height: 140px;
   width: 140px;
@@ -181,4 +177,21 @@ section .card .image img{
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   opacity: 1 !important;
+}
+
+
+/* @media screen and (min-width: 640px) {
+  .swiper {
+    width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper {
+    width: 768px;
+  }
+} */
+
+.swiper {
+  width: 950px;
 }
