@@ -329,88 +329,107 @@ let classmates = [
 // console.log(classmates[0].contributions);
 // const puppeteer = require('puppeteer');
 
-
-start();
-
-function start () {
-  classmates.forEach((classmate) => {
-    githubScrape(classmate)
-    .then(insertContributions(classmate))
-    .then(insertHtml(classmate))
-    .then(console.log(classmate.contributions));
-  });
-};
-
-
 const puppeteer = require('puppeteer');
 
-function githubScrape(classmate) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const browser = await puppeteer.launch( {
-        userDataDir: './data',
-        headless: false,
-        // executablePath: '/usr/bin/chromium-browser',
-        // args: ["--no-sandbox"],
-        // ignoreDefaultArgs: ['--disable-extensions'],
-      } );
-      const pageGithub = await browser.newPage();
-      await pageGithub.goto(`${classmate.github_url}`);
-      await page.waitFor(5000);
+for (let i = 0; i < classmates.length; i++) {
+  (async () => {
+    console.log(classmates[i].name);
 
-      let data = await pageGithub.evaluate(function() {
-        return contributions = document.querySelector('.js-yearly-contributions h2').innerText;
-        // return contributions;
-      });
+    const browser = await puppeteer.launch( { headless: true } );
+    const pageGithub = await browser.newPage();
+    await pageGithub.goto(`${classmates[i].github_url}`);
 
-      let result = data.replace(/[a-zA-Z]+/gi, '');
-      // document.getElementById(`${classmate.name.replace(/ /g,'-')}`).innerText = contribution;
-      browser.close();
-      return resolve(result);
-    } catch (e) {
-      return reject(e);
-    }
-  });
-}
+    let data = await pageGithub.evaluate(function() {
+      let contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+      // console.log(contributions);
+      return contributions;
+    });
 
-function insertContributions(classmate) {
-  classmate.contributions = githubScrape(classmate);
-}
+    classmates[i].contributions = await data.replace(/[a-zA-Z]+/gi, '');
+    console.log(classmates[i].contributions);
+  })();
+};
 
-function insertHtml(classmate) {
-  this.document.getElementById('card-container').insertAdjacentHTML('beforeend',
-  `<div class="swiper-slide card">
-      <div class="card-content">
-        <div class="image">
-          <img src="${classmate.photo_url}" alt="">
-        </div>
+// start();
 
-        <div class="media-icons">
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-github"></i>
-        </div>
+// function start () {
+//   classmates.forEach((classmate) => {
+//     githubScrape(classmate)
+//     .then(insertContributions(classmate))
+//     .then(insertHtml(classmate))
+//     .then(console.log(classmate.contributions));
+//   });
+// };
 
-        <div class="name-profession">
-          <span class="name">${classmate.name}</span>
-          <span class="profession">Web Developer</span>
-        </div>
 
-        <div class="stats">
-          <div class="stat-category contributions" >
-            <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions}</span>
-            <span class="text">Contributions</span>
-          </div>
 
-          <div class="stat-category rank">
-            <span class="number">#1</span>
-            <span class="text">rank</span>
-          </div>
-        </div>
+// function githubScrape(classmate) {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       const browser = await puppeteer.launch( {
+//         userDataDir: './data',
+//         headless: false,
+//         // executablePath: '/usr/bin/chromium-browser',
+//         // args: ["--no-sandbox"],
+//         // ignoreDefaultArgs: ['--disable-extensions'],
+//       } );
+//       const page = await browser.newPage();
+//       await page.goto(`${classmate.github_url}`);
+//       await page.waitFor(5000);
 
-        <div class="button">
-          <button class="aboutMe">About Me</button>
-        </div>
-      </div>
-    </div>`
-  );
-}
+//       let data = await page.evaluate(function() {
+//         return contributions = document.querySelector('.js-yearly-contributions h2').innerText;
+//         // return contributions;
+//       });
+
+//       let result = data.replace(/[a-zA-Z]+/gi, '');
+//       // document.getElementById(`${classmate.name.replace(/ /g,'-')}`).innerText = contribution;
+//       browser.close();
+//       return resolve(result);
+//     } catch (e) {
+//       return reject(e);
+//     }
+//   });
+// }
+
+// function insertContributions(classmate) {
+//   classmate.contributions = githubScrape(classmate);
+// }
+
+// function insertHtml(classmate) {
+//   this.document.getElementById('card-container').insertAdjacentHTML('beforeend',
+//   `<div class="swiper-slide card">
+//       <div class="card-content">
+//         <div class="image">
+//           <img src="${classmate.photo_url}" alt="">
+//         </div>
+
+//         <div class="media-icons">
+//           <i class="fa-brands fa-linkedin"></i>
+//           <i class="fa-brands fa-github"></i>
+//         </div>
+
+//         <div class="name-profession">
+//           <span class="name">${classmate.name}</span>
+//           <span class="profession">Web Developer</span>
+//         </div>
+
+//         <div class="stats">
+//           <div class="stat-category contributions" >
+//             <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions}</span>
+//             <span class="text">Contributions</span>
+//           </div>
+
+//           <div class="stat-category rank">
+//             <span class="number">#1</span>
+//             <span class="text">rank</span>
+//           </div>
+//         </div>
+
+//         <div class="button">
+//           <button class="aboutMe">About Me</button>
+//         </div>
+//       </div>
+//     </div>`
+//   );
+// }
