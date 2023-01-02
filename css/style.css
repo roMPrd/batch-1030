@@ -48,7 +48,7 @@ section .card .image img{
 .card::before {
   content: "";
   position: absolute;
-  height: 40%;
+  height: 30%;
   width: 100%;
   background: #7d2ae8;
   border-radius: 20px 20px 0 0;
@@ -90,6 +90,9 @@ section .card .image img{
   align-items: center;
   margin-top: 10px;
   color: #333;
+  text-align: center;
+  min-height: 100px;
+  justify-content: center;
 }
 
 .name-profession .name {
