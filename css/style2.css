@@ -19,7 +19,8 @@ body {
 
 section {
   position: relative;
-  height: 500px;
+  max-height: 500px;
+  height: 100%;
   max-width: 1075px;
   width: 90%;
   display: flex;
