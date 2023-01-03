@@ -422,24 +422,71 @@ let classmates = [
 // import data from './data.json' assert { type: 'JSON' };
 // console.log(data);
 // const fs = require('fs');
+window.load = start();
 
-const sortedRank = fetch("./data.json")
-              .then(r=>r.json())
-              .then(data => {
-                console.log('in async');
-                let sortedRank = data.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
-                return sortedRank;
-              })
-              .then(sortedRank => {
-                console.log('in async 2');
-                console.log(sortedRank);
-                insertHtml(sortedRank);
-              });
+async function start() {
+  const data = await fetch('./data.json');
+  const json = await data.json();
+  const sortedRank = json.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
+  // console.log(json);
+  insertHtmlTotal(sortedRank);
+  return json;
+}
 
-// console.log(sortedRank)
+// ===== Sort by Total Contributions ===== //
+const swiperTotal = document.getElementById('total-link');
 
-function insertHtml(sortedRank) {
-  sortedRank.forEach((classmate, i) => {
+swiperTotal.addEventListener('click', async function() {displayTotal();}, false);
+
+async function displayTotal() {
+  const data = await fetch('./data.json');
+  const json = await data.json();
+  let sortedRankTotal = json.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
+  insertHtmlTotal(sortedRankTotal);
+  return json;
+}
+
+// ===== Sort by 2022 Contributions ===== //
+const swiper2022 = document.getElementById('2022-link');
+
+swiper2022.addEventListener('click', async function() {display2022();}, false);
+
+async function display2022() {
+  const data = await fetch('./data.json');
+  const json = await data.json();
+  let sortedRank2022 = json.sort((r1, r2) => (parseInt(r1.contributions2022) < parseInt(r2.contributions2022)) ? 1 : (parseInt(r1.contributions2022) > parseInt(r2.contributions2022)) ? -1 : 0);
+  insertHtml2022(sortedRank2022);
+  return json;
+}
+
+// ===== Sort by 2023 Contributions ===== //
+const swiper2023 = document.getElementById('2023-link');
+
+swiper2023.addEventListener('click', async function() {display2023();}, false);
+
+async function display2023() {
+  const data = await fetch('./data.json');
+  const json = await data.json();
+  let sortedRank2023 = json.sort((r1, r2) => (parseInt(r1.contributions2023) < parseInt(r2.contributions2023)) ? 1 : (parseInt(r1.contributions2023) > parseInt(r2.contributions2023)) ? -1 : 0);
+  insertHtml2023(sortedRank2023);
+  return json;
+}
+
+function consoleLog2(d) {
+  setTimeout(() => {
+
+    console.log(Array.from(d));
+    console.log(d.PromiseResult);
+    console.log(d);
+    console.log(Promise.all(d));
+    // console.log(sortedRank);
+  }, 5000);
+}
+
+function insertHtmlTotal(el) {
+  document.getElementById('card-container').innerHTML = '';
+  insertScript();
+  Array.from(el).forEach((classmate, i) => {
     document.getElementById('card-container').insertAdjacentHTML('beforeend',
     `<div class="swiper-slide card">
         <div class="card-content">
@@ -479,5 +526,123 @@ function insertHtml(sortedRank) {
         </div>
       </div>`
     );
+  });
+}
+
+function insertHtml2022(el) {
+  document.getElementById('card-container').innerHTML = '';
+  insertScript();
+  console.log('in insertHtml2022');
+  el.forEach((classmate, i) => {
+    console.log('in insertHtml2022-2');
+    document.getElementById('card-container').insertAdjacentHTML('beforeend',
+    `<div class="swiper-slide card">
+        <div class="card-content">
+          <div class="image">
+            <img src="${classmate.photo_url}" alt="">
+          </div>
+
+          <div class="media-icons">
+            <a href="${classmate.linkedin_url}" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="${classmate.github_url}" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+
+          <div class="name-profession">
+            <span class="name">${classmate.name}</span>
+            <span class="profession">Web Developer</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat-category contributions" >
+              <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions2022}</span>
+              <span class="text">Contributions</span>
+            </div>
+
+            <div class="stat-category rank">
+              <span class="number">#${i+1}</span>
+              <span class="text">rank</span>
+            </div>
+          </div>
+
+          <div class="button">
+            <button class="aboutMe">About Me</button>
+          </div>
+        </div>
+      </div>`
+    );
+  });
+}
+
+function insertHtml2023(el) {
+  document.getElementById('card-container').innerHTML = '';
+  insertScript();
+  Array.from(el).forEach((classmate, i) => {
+    document.getElementById('card-container').insertAdjacentHTML('beforeend',
+    `<div class="swiper-slide card">
+        <div class="card-content">
+          <div class="image">
+            <img src="${classmate.photo_url}" alt="">
+          </div>
+
+          <div class="media-icons">
+            <a href="${classmate.linkedin_url}" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="${classmate.github_url}" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+
+          <div class="name-profession">
+            <span class="name">${classmate.name}</span>
+            <span class="profession">Web Developer</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat-category contributions" >
+              <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions2023}</span>
+              <span class="text">Contributions</span>
+            </div>
+
+            <div class="stat-category rank">
+              <span class="number">#${i+1}</span>
+              <span class="text">rank</span>
+            </div>
+          </div>
+
+          <div class="button">
+            <button class="aboutMe">About Me</button>
+          </div>
+        </div>
+      </div>`
+    );
+  });
+}
+
+function insertScript () {
+  var swiper = new Swiper(".mySwiper", {
+    // Default parameters
+    // slidesPerView: 1,
+    // spaceBetween: 10,
+    // Responsive breakpoints
+    breakpoints: {
+      1024: { slidesPerView: 3, spaceBetween: 30, slidesPerGroup: 3 },
+      768: { slidesPerView: 2, spaceBetween: 20, slidesPerGroup: 2 },
+      480: { slidesPerView: 1, spaceBetween: 10, slidesPerGroup: 1 },
+    },
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    }
   });
 }

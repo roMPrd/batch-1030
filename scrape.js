@@ -394,7 +394,7 @@ for (let i = 0; i < classmates.length; i++) {
     });
     await page2022.close();
 
-    classmates[i].contributions2022 = await data2022.replace(/\D+/g, '');
+    classmates[i].contributions2022 = await data2022.replace(/\D+/g, '').slice(0,-4);
 
     const page2023 = await browser.newPage();
     // await page.setDefaultNavigationTimeout(0);
@@ -408,7 +408,7 @@ for (let i = 0; i < classmates.length; i++) {
     });
     await page2023.close();
 
-    classmates[i].contributions2023 = await data2023.replace(/\D+/g, '');
+    classmates[i].contributions2023 = await data2023.replace(/\D+/g, '').slice(0,-4);
     // console.log(classmates[i]);
     updatedClassmates.push(classmates[i]);
     // console.log(classmates[i].contributions);
