@@ -662,22 +662,20 @@ function insertScript () {
   });
 }
 
-// function changeColor() {
-// swiperTotal.addEventListener('click', function() {changeColorTotal();}, false);
+// ===== Change Buttons Color ===== //
+
 function changeColorTotal() {
   swiperTotal.classList.add('change-color');
   swiper2022.classList.remove('change-color');
   swiper2023.classList.remove('change-color');
 }
 
-// swiper2022.addEventListener('click', function() {changeColor2022();}, false);
 function changeColor2022() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.add('change-color');
   swiper2023.classList.remove('change-color');
 }
 
-// swiper2023.addEventListener('click', function() {changeColor2023();}, false);
 function changeColor2023() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.remove('change-color');
