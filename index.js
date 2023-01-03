@@ -475,6 +475,7 @@ async function display2023() {
 // ===== Insert Into Html ===== //
 
 function insertHtmlTotal(el) {
+  changeColorTotal()
   document.getElementById('card-container').innerHTML = '';
   insertScript();
   // reloadCss();
@@ -523,6 +524,7 @@ function insertHtmlTotal(el) {
 }
 
 function insertHtml2022(el) {
+  changeColor2022()
   document.getElementById('card-container').innerHTML = '';
   insertScript();
   // insertHtmlContainer();
@@ -570,6 +572,7 @@ function insertHtml2022(el) {
 }
 
 function insertHtml2023(el) {
+  changeColor2023()
   document.getElementById('card-container').innerHTML = '';
   insertScript();
   // insertHtmlContainer();
@@ -660,21 +663,21 @@ function insertScript () {
 }
 
 // function changeColor() {
-swiperTotal.addEventListener('click', function() {changeColorTotal();}, false);
+// swiperTotal.addEventListener('click', function() {changeColorTotal();}, false);
 function changeColorTotal() {
   swiperTotal.classList.add('change-color');
   swiper2022.classList.remove('change-color');
   swiper2023.classList.remove('change-color');
 }
 
-swiper2022.addEventListener('click', function() {changeColor2022();}, false);
+// swiper2022.addEventListener('click', function() {changeColor2022();}, false);
 function changeColor2022() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.add('change-color');
   swiper2023.classList.remove('change-color');
 }
 
-swiper2023.addEventListener('click', function() {changeColor2023();}, false);
+// swiper2023.addEventListener('click', function() {changeColor2023();}, false);
 function changeColor2023() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.remove('change-color');
