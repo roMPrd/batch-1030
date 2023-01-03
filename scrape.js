@@ -268,6 +268,7 @@ let classmates = [
   },
 ];
 
+// require modules
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
@@ -275,14 +276,15 @@ updatedClassmates = [];
 
 process.setMaxListeners(Infinity);
 
+// arguments for Puppeteer Launch
 const args = [
   '--disable-gpu',
   '--no-sandbox',
 ]
 
+// scrape contributions
 for (let i = 0; i < classmates.length; i++) {
   (async () => {
-    // console.log(classmates[i].name);
 
     const browser = await puppeteer.launch({
       headless     : true,
@@ -313,7 +315,7 @@ for (let i = 0; i < classmates.length; i++) {
           return console.log(err);
       }
       // console.log(updatedClassmates)
-      console.log("The data has been scraped and saved successfully! View it at './data.json'");
+      console.log(`The data of ${classmates[i].name} has been scraped and saved successfully! View it at './data.json'`);
     });
   })();
 };
