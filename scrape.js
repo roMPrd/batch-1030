@@ -1,4 +1,4 @@
-// import classmates from './classmates.mjs';
+// Create Classmates Array //
 
 let classmates = [
   { "name": "Romain Delimal",
@@ -344,7 +344,7 @@ let classmates = [
   },
 ];
 
-// require modules
+// require modules //
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
@@ -352,13 +352,13 @@ updatedClassmates = [];
 
 process.setMaxListeners(Infinity);
 
-// arguments for Puppeteer Launch
+// arguments for Puppeteer Launch //
 const args = [
   '--disable-gpu',
   '--no-sandbox',
 ]
 
-// scrape contributions
+// scrape contributions //
 for (let i = 0; i < classmates.length; i++) {
   (async () => {
 
