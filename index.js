@@ -472,20 +472,13 @@ async function display2023() {
   return json;
 }
 
-function consoleLog2(d) {
-  setTimeout(() => {
-
-    console.log(Array.from(d));
-    console.log(d.PromiseResult);
-    console.log(d);
-    console.log(Promise.all(d));
-    // console.log(sortedRank);
-  }, 5000);
-}
+// ===== Insert Into Html ===== //
 
 function insertHtmlTotal(el) {
   document.getElementById('card-container').innerHTML = '';
   insertScript();
+  // reloadCss();
+  // insertHtmlContainer();
   Array.from(el).forEach((classmate, i) => {
     document.getElementById('card-container').insertAdjacentHTML('beforeend',
     `<div class="swiper-slide card">
@@ -532,9 +525,8 @@ function insertHtmlTotal(el) {
 function insertHtml2022(el) {
   document.getElementById('card-container').innerHTML = '';
   insertScript();
-  console.log('in insertHtml2022');
+  // insertHtmlContainer();
   el.forEach((classmate, i) => {
-    console.log('in insertHtml2022-2');
     document.getElementById('card-container').insertAdjacentHTML('beforeend',
     `<div class="swiper-slide card">
         <div class="card-content">
@@ -580,6 +572,7 @@ function insertHtml2022(el) {
 function insertHtml2023(el) {
   document.getElementById('card-container').innerHTML = '';
   insertScript();
+  // insertHtmlContainer();
   Array.from(el).forEach((classmate, i) => {
     document.getElementById('card-container').insertAdjacentHTML('beforeend',
     `<div class="swiper-slide card">
@@ -623,6 +616,22 @@ function insertHtml2023(el) {
   });
 }
 
+function insertHtmlContainer() {
+  document.getElementById('insertHtml').innerHTML = '';
+  document.getElementById('insertHtml').insertAdjacentHTML('beforeend', `
+    <div class="swiper mySwiper container">
+      <div id="card-container" class="swiper-wrapper content">
+        <!-- ===== Card ===== -->
+      </div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>`
+  );
+  insertScript();
+}
+
 function insertScript () {
   var swiper = new Swiper(".mySwiper", {
     // Default parameters
@@ -636,6 +645,9 @@ function insertScript () {
     },
     loop: true,
     loopFillGroupWithBlank: true,
+    hashNavigation: {
+      watchState: true,
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -646,3 +658,38 @@ function insertScript () {
     }
   });
 }
+
+// function changeColor() {
+swiperTotal.addEventListener('click', function() {changeColorTotal();}, false);
+function changeColorTotal() {
+  swiperTotal.classList.add('change-color');
+  swiper2022.classList.remove('change-color');
+  swiper2023.classList.remove('change-color');
+}
+
+swiper2022.addEventListener('click', function() {changeColor2022();}, false);
+function changeColor2022() {
+  swiperTotal.classList.remove('change-color');
+  swiper2022.classList.add('change-color');
+  swiper2023.classList.remove('change-color');
+}
+
+swiper2023.addEventListener('click', function() {changeColor2023();}, false);
+function changeColor2023() {
+  swiperTotal.classList.remove('change-color');
+  swiper2022.classList.remove('change-color');
+  swiper2023.classList.add('change-color');
+}
+
+
+
+// function reloadCss()
+// {
+//     var links = document.getElementsByTagName("link");
+//     for (var cl in links)
+//     {
+//         var link = links[cl];
+//         if (link.rel === "stylesheet")
+//             link.href += "";
+//     }
+// }

@@ -67,8 +67,9 @@ section .header .header-rank {
 
 section .header .rank-links li{
   padding: 10px 24px;
-  background: #7d2ae8;
-  color: #fff;
+  background: #fff;
+  border: 3px solid #7d2ae8;
+  color: #333;
   font-size: 20px;
   font-weight: 600;
   border-radius: 20px;
@@ -77,7 +78,13 @@ section .header .rank-links li{
   cursor: pointer;
 }
 section .header .rank-links li:hover{
-  background: #6616d0;
+  background: #7d2ae8;
+  color: #fff;
+}
+
+section .header .rank-links .change-color{
+  background: #7d2ae8;
+  color: #fff;
 }
 
 section .header-title img {
@@ -286,4 +293,3 @@ section .card .image img{
     align-items: center;
   }
 }
-
