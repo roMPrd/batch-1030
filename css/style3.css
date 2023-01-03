@@ -30,17 +30,54 @@ section {
   /* background: red; */
 }
 
-section .header-title {
-  font-size: 30px;
-  font-weight: 600;
-  color: #333;
+section .header {
   position: absolute;
   top: -30px;
   line-height: 1;
   width: 100%;
   text-align: center;
   display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+section .header-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+  /* position: absolute; */
+  top: -30px;
+  line-height: 1;
+  /* width: 100%; */
+  text-align: center;
+  display: flex;
   flex-direction: column;
+}
+section .header .rank-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 10px; */
+  /* column-gap: 20px; */
+}
+section .header .header-rank {
+  display: flex;
+  align-items: flex-end;
+}
+
+section .header .rank-links li{
+  padding: 10px 24px;
+  background: #7d2ae8;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  cursor: pointer;
+}
+section .header .rank-links li:hover{
+  background: #6616d0;
 }
 
 section .header-title img {
@@ -50,10 +87,10 @@ section .header-title img {
   border-radius: 50%;
 }
 
-section .header-title .batch {
+section .header-title .batch-text {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 
 }
 
@@ -236,4 +273,3 @@ section .card .image img{
   }
 
 }
-
