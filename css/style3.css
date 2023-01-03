@@ -262,14 +262,27 @@ section .card .image img{
   width: 100%;
 }
 
+@media screen and (max-width: 900px) {
+  section .header-title {
+    font-size: 23px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: -80px !important;
   }
-
   section .header-title {
     font-size: 20px;
     top: -30px;
+    margin-bottom: 10px;
   }
-
+  section .header-title .batch-text {
+    justify-content: center;
+  }
+  section .header {
+    top: -70px;
+    flex-direction: column;
+    align-items: center;
+  }
 }

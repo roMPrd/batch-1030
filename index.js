@@ -427,7 +427,7 @@ const sortedRank = fetch("./data.json")
               .then(r=>r.json())
               .then(data => {
                 console.log('in async');
-                let sortedRank = data.sort((r1, r2) => (parseInt(r1.contributions) < parseInt(r2.contributions)) ? 1 : (parseInt(r1.contributions) > parseInt(r2.contributions)) ? -1 : 0);
+                let sortedRank = data.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
                 return sortedRank;
               })
               .then(sortedRank => {
@@ -463,7 +463,7 @@ function insertHtml(sortedRank) {
 
           <div class="stats">
             <div class="stat-category contributions" >
-              <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions}</span>
+              <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributionsTotal}</span>
               <span class="text">Contributions</span>
             </div>
 
