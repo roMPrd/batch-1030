@@ -83,7 +83,7 @@ function insertHtmlTotal(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ function insertHtml2022(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
           </div>
         </div>
 
@@ -178,7 +178,7 @@ function insertHtml2023(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
           </div>
         </div>
 
