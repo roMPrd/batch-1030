@@ -18,6 +18,20 @@ body {
   position: relative;
 }
 
+body .top-infos {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body .top-infos .visit-counter {
+  height: 30px;
+  /* width: 30px; */
+}
+
 
 section {
   position: relative;
