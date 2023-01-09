@@ -19,7 +19,6 @@ function displayTotal() {
   let sortedRankTotal = dataJson.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
   insertHtmlTotal(sortedRankTotal);
   swiper.slideTo(0);
-  // rotateCard()
 }
 
 // ===== Sort by 2022 Contributions ===== //
@@ -31,7 +30,6 @@ function display2022() {
   let sortedRank2022 = dataJson.sort((r1, r2) => (parseInt(r1.contributions2022) < parseInt(r2.contributions2022)) ? 1 : (parseInt(r1.contributions2022) > parseInt(r2.contributions2022)) ? -1 : 0);
   insertHtml2022(sortedRank2022);
   swiper.slideTo(0)
-  // rotateCard()
 }
 
 // ===== Sort by 2023 Contributions ===== //
@@ -43,7 +41,6 @@ function display2023() {
   let sortedRank2023 = dataJson.sort((r1, r2) => (parseInt(r1.contributions2023) < parseInt(r2.contributions2023)) ? 1 : (parseInt(r1.contributions2023) > parseInt(r2.contributions2023)) ? -1 : 0);
   insertHtml2023(sortedRank2023);
   swiper.slideTo(0)
-  // rotateCard()
 }
 
 // ===== Insert Into Html ===== //
@@ -209,49 +206,4 @@ function changeColor2023() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.remove('change-color');
   swiper2023.classList.add('change-color');
-}
-
-// ===== Rotating cards ===== //
-
-
-// function rotateCard () {
-//   button.addEventListener('click', () => {
-//     if (aboutMe.classList.contains('hide')) {
-//       aboutMe.classList.remove('hide');
-//       nameProfession.classList.add('hide');
-//       stats.classList.add('hide');
-//       button.classList.add('hide');
-//     }
-//     aboutMe.classList.add('hide');
-//     nameProfession.classList.remove('hide');
-//     stats.classList.remove('hide');
-//     button.classList.remove('hide');
-//   });
-// }
-
-function rotateCard() {
-  const nameProfession = document.querySelector('.name-profession');
-  console.log(nameProfession);
-  const stats = document.querySelector('.stats');
-  console.log(stats)
-  const buttonAboutMe = document.querySelectorAll('.aboutMe');
-  console.log(buttonAboutMe)
-  const aboutMe = document.querySelector('.about-me');
-  console.log(aboutMe)
-  buttonAboutMe.forEach((button) => {
-    button.addEventListener('click', () => {
-      console.log ('clicked')
-      if (aboutMe.classList.contains('hide')) {
-        aboutMe.classList.remove('hide');
-        nameProfession.classList.add('hide');
-        stats.classList.add('hide');
-        divButton.classList.add('hide');
-      }
-      aboutMe.classList.add('hide');
-      nameProfession.classList.remove('hide');
-      stats.classList.remove('hide');
-      divButton.classList.remove('hide');
-    });
-  });
-
 }
