@@ -175,6 +175,29 @@ section .card .image img{
   opacity: 1;
 }
 
+.card .rank {
+  position:absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .rank img {
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%;
+  border: 3px solid #fff; */
+  margin-bottom: 10px;
+}
+
+.card .rank span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+}
+
 .card .name-profession {
   display: flex;
   flex-direction: column;

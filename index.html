@@ -65,20 +65,22 @@
 
   <!-- ===== Scipt JS ===== -->
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
-  <script type="module" src="./index.js"></script>
+  <script src="bundle.js"></script>
+  <!-- <script type="module" src="./index.js"></script> -->
 
   <!-- ===== Swiper JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
   <!-- ===== Initialize Swiper ===== -->
   <!-- <div class="swiper-script"> -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        // Default parameters
-        // slidesPerView: 1,
-        // spaceBetween: 10,
-        // Responsive breakpoints
-        breakpoints: {
+    <div id="insert-script">
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          // Default parameters
+          // slidesPerView: 1,
+          // spaceBetween: 10,
+          // Responsive breakpoints
+          breakpoints: {
           1024: { slidesPerView: 3, spaceBetween: 30, slidesPerGroup: 3 },
           768: { slidesPerView: 2, spaceBetween: 20, slidesPerGroup: 2 },
           480: { slidesPerView: 1, spaceBetween: 10, slidesPerGroup: 1 },
@@ -94,7 +96,8 @@
           prevEl: ".swiper-button-prev",
         }
       });
-    </script>
+      </script>
+    </div>
   <!-- </div> -->
 
 
