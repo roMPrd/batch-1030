@@ -185,7 +185,13 @@ function insertHtml2023(el) {
             <button class="aboutMe">About Me</button>
           </div>
         </div>
-      </div>`
+      </div>
+
+      <div class="about-me">
+        <img src="https://github-readme-stats.vercel.app/api?username=${classmate.github_username}&show_icons=true&count_private=true&hide_border=true"/>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}"/>
+      </div>
+      `
     );
   });
 }
@@ -209,3 +215,5 @@ function changeColor2023() {
   swiper2022.classList.remove('change-color');
   swiper2023.classList.add('change-color');
 }
+
+// ===== Rotating cards ===== //

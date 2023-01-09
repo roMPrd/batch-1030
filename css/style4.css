@@ -317,3 +317,9 @@ section .card .image img{
     align-items: center;
   }
 }
+
+/* ===== rotating cards ===== */
+
+.card .about-me {
+  display: none;
+}
