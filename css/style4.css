@@ -235,7 +235,7 @@ section .card .image img{
 }
 
 .card .stat-category span {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   color: #333;
 }
@@ -320,7 +320,7 @@ section .card .image img{
 
 /* ===== rotating cards ===== */
 
-.card .card-content .name-profession.hide,
+/* .card .card-content .name-profession.hide,
 .card .card-content .stats.hide,
 .card .card-content .button.hide {
   display: none;
@@ -341,4 +341,4 @@ section .card .image img{
 
 .card .card-content .about-me.hide {
   display: none;
-}
+} */

@@ -86,11 +86,6 @@ function insertHtmlTotal(el) {
             <div class="stat-category contributions" >
               <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributionsTotal}<span class="text"> Contributions</span></span>
             </div>
-
-          </div>
-
-          <div class="button  hide">
-            <button class="aboutMe">About Me</button>
           </div>
 
           <div class="about-me">
@@ -140,10 +135,6 @@ function insertHtml2022(el) {
             </div>
           </div>
 
-          <div class="button  hide">
-            <button class="aboutMe">About Me</button>
-          </div>
-
           <div class="about-me">
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8"/>
           </div>
@@ -190,10 +181,6 @@ function insertHtml2023(el) {
             <div class="stat-category contributions" >
               <span id="${classmate.name.replace(/ /g,'-')}" class="number green">${classmate.contributions2023}<span class="text"> Contributions</span></span>
             </div>
-          </div>
-
-          <div class="button hide">
-            <button class="aboutMe">About Me</button>
           </div>
 
           <div class="about-me">
