@@ -149,7 +149,7 @@ section .card .image img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 10px 10px 0 10px;
   position: relative;
   z-index: 100;
 }
@@ -203,10 +203,10 @@ section .card .image img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   color: #333;
   text-align: center;
-  min-height: 100px;
+  min-height: 80px;
   justify-content: center;
 }
 
@@ -223,7 +223,7 @@ section .card .image img{
 .card .stats {
   display: flex;
   align-items: center;
-  margin-top: 18px;
+  /* margin-top: 18px; */
   width: 100%;
   justify-content: space-around;
 }
@@ -327,7 +327,7 @@ section .card .image img{
 }
 
 .card .card-content .about-me img {
-  height: 210px;
+  width: 100%;
 }
 
 
