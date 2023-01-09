@@ -320,6 +320,25 @@ section .card .image img{
 
 /* ===== rotating cards ===== */
 
-.card .about-me {
+.card .card-content .name-profession.hide,
+.card .card-content .stats.hide,
+.card .card-content .button.hide {
+  display: none;
+}
+
+.card .card-content .about-me img {
+  height: 210px;
+}
+
+
+.card .card-content .about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  z-index: 100;
+}
+
+.card .card-content .about-me.hide {
   display: none;
 }

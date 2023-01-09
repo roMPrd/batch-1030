@@ -86,10 +86,15 @@ function insertHtmlTotal(el) {
           </div>
 
           <div class="button">
-            <button class="aboutMe">About Me</button>
+            <button class="aboutMe" onclick="rotateCard()">About Me</button>
+          </div>
+
+          <div class="about-me hide">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}"/>
           </div>
         </div>
-      </div>`
+      </div>
+      `
     );
   });
 }
@@ -133,11 +138,17 @@ function insertHtml2022(el) {
             </div>
           </div>
 
-          <div class="button">
+          <div class="button" onclick="rotateCard()">
             <button class="aboutMe">About Me</button>
           </div>
+
+          <div class="about-me hide">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}"/>
+          </div>
         </div>
-      </div>`
+
+      </div>
+      `
     );
   });
 }
@@ -182,14 +193,14 @@ function insertHtml2023(el) {
           </div>
 
           <div class="button">
-            <button class="aboutMe">About Me</button>
+            <button class="aboutMe" onclick="rotateCard()">About Me</button>
+          </div>
+
+          <div class="about-me hide">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}"/>
           </div>
         </div>
-      </div>
 
-      <div class="about-me">
-        <img src="https://github-readme-stats.vercel.app/api?username=${classmate.github_username}&show_icons=true&count_private=true&hide_border=true"/>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}"/>
       </div>
       `
     );
@@ -217,3 +228,36 @@ function changeColor2023() {
 }
 
 // ===== Rotating cards ===== //
+
+
+
+// button.addEventListener('click', () => {
+//   if (aboutMe.classList.contains('hide')) {
+//     aboutMe.classList.remove('hide');
+//     nameProfession.classList.add('hide');
+//     stats.classList.add('hide');
+//     button.classList.add('hide');
+//   }
+//   aboutMe.classList.add('hide');
+//   nameProfession.classList.remove('hide');
+//   stats.classList.remove('hide');
+//   button.classList.remove('hide');
+// });
+
+function rotateCard() {
+  let nameProfession = document.querySelector('.name-profession');
+  let stats = document.querySelector('.stats');
+  let button = document.querySelector('.button');
+  let aboutMe = document.querySelector('.about-me');
+
+  if (aboutMe.classList.contains('hide')) {
+    aboutMe.classList.remove('hide');
+    nameProfession.classList.add('hide');
+    stats.classList.add('hide');
+    button.classList.add('hide');
+  }
+  aboutMe.classList.add('hide');
+  nameProfession.classList.remove('hide');
+  stats.classList.remove('hide');
+  button.classList.remove('hide');
+}
