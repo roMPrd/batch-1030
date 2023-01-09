@@ -18,6 +18,7 @@ swiperTotal.addEventListener('click', function() {displayTotal();}, false);
 function displayTotal() {
   let sortedRankTotal = dataJson.sort((r1, r2) => (parseInt(r1.contributionsTotal) < parseInt(r2.contributionsTotal)) ? 1 : (parseInt(r1.contributionsTotal) > parseInt(r2.contributionsTotal)) ? -1 : 0);
   insertHtmlTotal(sortedRankTotal);
+  swiper.slideTo(0);
 }
 
 // ===== Sort by 2022 Contributions ===== //
@@ -28,6 +29,7 @@ swiper2022.addEventListener('click', function() {display2022();}, false);
 function display2022() {
   let sortedRank2022 = dataJson.sort((r1, r2) => (parseInt(r1.contributions2022) < parseInt(r2.contributions2022)) ? 1 : (parseInt(r1.contributions2022) > parseInt(r2.contributions2022)) ? -1 : 0);
   insertHtml2022(sortedRank2022);
+  swiper.slideTo(0)
 }
 
 // ===== Sort by 2023 Contributions ===== //
@@ -38,18 +40,17 @@ swiper2023.addEventListener('click', function() {display2023();}, false);
 function display2023() {
   let sortedRank2023 = dataJson.sort((r1, r2) => (parseInt(r1.contributions2023) < parseInt(r2.contributions2023)) ? 1 : (parseInt(r1.contributions2023) > parseInt(r2.contributions2023)) ? -1 : 0);
   insertHtml2023(sortedRank2023);
+  swiper.slideTo(0)
 }
 
 // ===== Insert Into Html ===== //
 
 function insertHtmlTotal(el) {
-  changeColorTotal()
-  document.getElementById('card-container').innerHTML = '';
-  insertScript();
-  // reloadCss();
-  // insertHtmlContainer();
+  changeColorTotal();
+  swiper.removeAllSlides();
+
   Array.from(el).forEach((classmate, i) => {
-    document.getElementById('card-container').insertAdjacentHTML('beforeend',
+    swiper.appendSlide(
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
@@ -94,12 +95,11 @@ function insertHtmlTotal(el) {
 }
 
 function insertHtml2022(el) {
-  changeColor2022()
-  document.getElementById('card-container').innerHTML = '';
-  insertScript();
-  // insertHtmlContainer();
+  changeColor2022();
+  swiper.removeAllSlides();
+
   el.forEach((classmate, i) => {
-    document.getElementById('card-container').insertAdjacentHTML('beforeend',
+    swiper.appendSlide(
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
@@ -143,12 +143,11 @@ function insertHtml2022(el) {
 }
 
 function insertHtml2023(el) {
-  changeColor2023()
-  document.getElementById('card-container').innerHTML = '';
-  insertScript();
-  // insertHtmlContainer();
+  changeColor2023();
+  swiper.removeAllSlides();
+
   Array.from(el).forEach((classmate, i) => {
-    document.getElementById('card-container').insertAdjacentHTML('beforeend',
+    swiper.appendSlide(
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
@@ -209,31 +208,4 @@ function changeColor2023() {
   swiperTotal.classList.remove('change-color');
   swiper2022.classList.remove('change-color');
   swiper2023.classList.add('change-color');
-}
-
-function insertScript () {
-  var swiper = new Swiper(".mySwiper", {
-    // Default parameters
-    // slidesPerView: 1,
-    // spaceBetween: 10,
-    // Responsive breakpoints
-    breakpoints: {
-      1024: { slidesPerView: 3, spaceBetween: 30, slidesPerGroup: 3 },
-      768: { slidesPerView: 2, spaceBetween: 20, slidesPerGroup: 2 },
-      480: { slidesPerView: 1, spaceBetween: 10, slidesPerGroup: 1 },
-    },
-    loop: true,
-    loopFillGroupWithBlank: true,
-    hashNavigation: {
-      watchState: true,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    }
-  });
 }
