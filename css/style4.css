@@ -160,6 +160,7 @@ section .card .image img.chat {
   border-radius: 20px;
   margin: 20px 0;
   width: 280px;
+  min-height: 400px;
 }
 
 .card::before {
