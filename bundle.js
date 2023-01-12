@@ -57,6 +57,7 @@ function insertHtmlTotal(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 
@@ -104,6 +105,7 @@ function insertHtml2022(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 
@@ -152,6 +154,7 @@ function insertHtml2023(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 

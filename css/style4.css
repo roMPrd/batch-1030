@@ -132,6 +132,7 @@ section .card .image {
   border-radius: 50%;
   padding: 3px;
   background: #7d2ae8;
+  position: relative;
 }
 
 section .card .image img{
@@ -140,6 +141,16 @@ section .card .image img{
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #fff;
+}
+section .card .image img.chat {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  top: -30px;
+  right: 45px;
 }
 
 .card {
