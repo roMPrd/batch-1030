@@ -54,7 +54,7 @@ function insertHtmlTotal(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
-            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/moki.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 
@@ -84,7 +84,7 @@ function insertHtmlTotal(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent" style="width: 100%"/>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ function insertHtml2022(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
-            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/moki.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 
@@ -132,7 +132,7 @@ function insertHtml2022(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent" style="width: 100%"/>
           </div>
         </div>
 
@@ -151,7 +151,7 @@ function insertHtml2023(el) {
     `<div class="swiper-slide card">
         <div class="card-content">
           <div class="image">
-            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/chat-pauline.png" alt=""></img>' : '' }
+            ${ classmate.name === "Pauline Gouttiere" ? '<img class="chat" src="./image/moki.png" alt=""></img>' : '' }
             <img src="${classmate.photo_url}" alt="">
           </div>
 
@@ -181,7 +181,7 @@ function insertHtml2023(el) {
           </div>
 
           <div class="about-me">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent"/>
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${classmate.github_username}&layout=compact&hide_border=true&title_color=7d2ae8&theme=transparent" style="width: 100%"/>
           </div>
         </div>
 

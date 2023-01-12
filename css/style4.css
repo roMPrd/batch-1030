@@ -143,14 +143,15 @@ section .card .image img{
   border: 3px solid #fff;
 }
 section .card .image img.chat {
-  height: 50px;
+  height: 55px;
   width: 50px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 0%;
   border: none;
   position: absolute;
-  top: -30px;
-  right: 45px;
+  top: 16px;
+  right: -5px;
+  transform: rotate(80deg);
 }
 
 .card {
