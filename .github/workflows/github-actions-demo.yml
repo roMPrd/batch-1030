@@ -15,6 +15,7 @@ jobs:
       - run: echo "Setup-node"
       - name: Setup-node
         uses: actions/setup-node@v3
+        # last error
       - run: echo "Scrape"
       - run: node scrape
       - run: echo "browserify"
@@ -25,4 +26,3 @@ jobs:
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
- 
