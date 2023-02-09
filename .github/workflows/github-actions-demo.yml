@@ -10,23 +10,23 @@ jobs:
     steps:
       - run: echo "Checkout"
       - name: Checkout
-          uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "Setup-node"
       - name: Setup-node
       - uses: actions/setup-node@v3
-          with:
-            node-version: 16
-            cache: 'npm'
-            cache-dependency-path: subdir/package-lock.json
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
       - run: echo "Scrape"
       - run: node scrape
       - run: echo "browserify"
       - run: browserify index.js -o bundle.js
       - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Apply update changes ${{ steps.hello.outputs.time }}
-            
+        with:
+          commit_message: Apply update changes ${{ steps.hello.outputs.time }}
+
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
 
