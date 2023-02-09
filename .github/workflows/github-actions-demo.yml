@@ -15,10 +15,6 @@ jobs:
       - run: echo "Setup-node"
       - name: Setup-node
         uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
-          cache-dependency-path: subdir/package-lock.json
       - run: echo "Scrape"
       - run: node scrape
       - run: echo "browserify"
