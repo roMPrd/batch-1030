@@ -18,7 +18,7 @@ jobs:
         # last error
           with:
             node-version: 16 
-        run: npm ci
+      - run: npm ci
       - name: Install dependencies
         run: npm install
       - run: echo "Scrape"
